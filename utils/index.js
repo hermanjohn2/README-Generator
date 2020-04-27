@@ -1,7 +1,11 @@
+const api = require('./api');
+
 const questions = [];
 
 function writeToFile(fileName, data) {}
 
-function init() {}
+function init() {
+	api.getUser();
+}
 
 init();
