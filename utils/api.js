@@ -9,15 +9,16 @@ const api = {
         const userEmail = response.data[0].payload.commits[0].author.email;
         const avatarURL = response.data[0].actor.avatar_url;
 
-        const gitHubData = `${userEmail}![GitHub Avatar](${avatarURL})`;
+        const gitHubData = `${userEmail}
+         ![GitHub Avatar](${avatarURL})`;
 
-        fs.appendFile('README.md', gitHubData, 'utf8', (err) => {
-          if (err) throw err;
+        fs.appendFile('README.md', gitHubData, 'utf8', (error) => {
+          if (error) throw error;
         });
       })
-      .catch((error) =>
-        console.log(error, 'Please enter a valid GitHub username.')
-      );
+      .catch((error) => {
+        if (error) throw error;
+      });
   }
 };
 

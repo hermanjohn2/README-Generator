@@ -47,7 +47,10 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, 'utf8', (error) => console.log(error));
+  fs.writeFile(fileName, data, 'utf8', (error) => {
+    if (error) throw error;
+    console.log('Your README.md was successfully created!');
+  });
 }
 
 async function init() {

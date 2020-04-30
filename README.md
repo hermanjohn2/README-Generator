@@ -38,4 +38,5 @@
 
 
 ## Questions
-hermanjohn2@gmail.com![GitHub Avatar](https://avatars.githubusercontent.com/u/57771371?)
+hermanjohn2@gmail.com
+         ![GitHub Avatar](https://avatars.githubusercontent.com/u/57771371?)
