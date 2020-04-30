@@ -1,7 +1,7 @@
 
-# Best App Ever
+# 
 
-A great app
+
 
 ## Table of Contents
 
@@ -19,25 +19,23 @@ A great app
 
 ## Installation
 
-install it
+
 
 ## Usage
 
-of course
+
 
 ## License 
 
-nope
+
 
 ## Contributing
 
-everyone
+
 
 ## Tests
 
-lots
+
 
 ## Questions
-
-
-
+hermanjohn2@gmail.com![GitHub Avatar](https://avatars.githubusercontent.com/u/57771371?)

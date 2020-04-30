@@ -41,9 +41,6 @@ ${data.contributing}
 ${data.tests}
 
 ## Questions
-
-
-
 `;
 }
 
