@@ -1,3 +1,5 @@
+const api = require('./api');
+
 function generateMarkdown(data) {
   return `
 # ${data.title}
@@ -40,8 +42,7 @@ ${data.tests}
 
 ## Questions
 
-${data.img}
-${data.email}
+
 
 `;
 }

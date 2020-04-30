@@ -1,5 +1,7 @@
+const fs = require('fs');
 const inquirer = require('inquirer');
 const api = require('./utils/api');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const questions = [
   {
@@ -44,13 +46,16 @@ const questions = [
   }
 ];
 
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, 'utf8', (error) => console.log(error));
+}
 
 async function init() {
   const userInput = await inquirer.prompt(questions);
 
-  const gitHubData = await api.getUser(userInput.username);
-  await console.log(userInput);
+  await api.getUser(userInput.username);
+
+  await writeToFile('README.md', generateMarkdown(userInput));
 }
 
 init();
