@@ -1,7 +1,9 @@
 
-# 
+# Coding Quiz
 
+A coding quiz.
 
+[![GitHub version](https://badge.fury.io/gh/hermanjohn2%2FcodingQuiz.svg)](https://github.com/hermanjohn2/codingQuiz)
 
 ## Table of Contents
 
@@ -19,15 +21,15 @@
 
 ## Installation
 
-
+NPM Install
 
 ## Usage
 
-
+Test coding ability.
 
 ## License 
 
-
+MIT
 
 ## Contributing
 

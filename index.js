@@ -11,6 +11,11 @@ const questions = [
   },
   {
     type: 'input',
+    message: 'What is this projects repository name on GitHub?',
+    name: 'repo'
+  },
+  {
+    type: 'input',
     message: 'What is the title of your project?',
     name: 'title'
   },

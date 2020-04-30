@@ -6,6 +6,8 @@ function generateMarkdown(data) {
 
 ${data.description}
 
+[![GitHub version](https://badge.fury.io/gh/${data.username}%2F${data.repo}.svg)](https://github.com/${data.username}/${data.repo})
+
 ## Table of Contents
 
 1. Installation
