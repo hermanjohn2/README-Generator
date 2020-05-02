@@ -4,15 +4,18 @@ const axios = require('axios');
 const api = {
   getUser(username) {
     axios
-      .get(`https://api.github.com/users/${username}/events/public`)
+      .get(`https://api.github.com/users/${username}`)
       .then((response) => {
-        const userEmail = response.data[0].payload.commits[0].author.email;
-        const avatarURL = response.data[0].actor.avatar_url;
+        let userEmail = response.data.email;
+        let avatarURL = response.data.avatar_url;
 
-        const gitHubData = `${userEmail}
-         ![GitHub Avatar](${avatarURL})`;
+        if (userEmail === null) userEmail = '';
 
-        fs.appendFile('README.md', gitHubData, 'utf8', (error) => {
+        const gitHubData = `
+Please send questions to: ${userEmail}
+![GitHub Avatar](${avatarURL})`;
+
+        fs.appendFile('yourReadMe.md', gitHubData, 'utf8', (error) => {
           if (error) throw error;
         });
       })
