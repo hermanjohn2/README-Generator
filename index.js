@@ -61,7 +61,7 @@ function writeToFile(fileName, data) {
 async function init() {
   const userInput = await inquirer.prompt(questions);
 
-  await writeToFile('README.md', generateMarkdown(userInput));
+  await writeToFile('yourReadMe.md', generateMarkdown(userInput));
 
   await api.getUser(userInput.username);
 }
