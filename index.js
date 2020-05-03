@@ -11,7 +11,7 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'What is this projects repository name on GitHub?',
+    message: 'What is your projects repository name on GitHub?',
     name: 'repo'
   },
   {
@@ -21,32 +21,28 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'Please write a brief description of your project...',
+    message: 'Please write a brief description of your project:',
     name: 'description'
   },
   {
     type: 'input',
-    message: 'Installation?',
+    message:
+      'Please write a decription of the installation process of your project:',
     name: 'installation'
   },
   {
     type: 'input',
-    message: 'Usage?',
+    message: 'Please write a description of how to use your project:',
     name: 'usage'
   },
   {
     type: 'input',
-    message: 'License?',
+    message: 'Please provide the license information of your project:',
     name: 'license'
   },
   {
     type: 'input',
-    message: 'Contributing?',
-    name: 'contributing'
-  },
-  {
-    type: 'input',
-    message: 'Tests?',
+    message: 'Please write a description of how to test your project:',
     name: 'tests'
   }
 ];
@@ -54,14 +50,15 @@ const questions = [
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, 'utf8', (error) => {
     if (error) throw error;
-    console.log('Your README.md was successfully created!');
+    console.log('yourReadMe.md was successfully created!');
   });
 }
 
 async function init() {
   const userInput = await inquirer.prompt(questions);
+  const markdown = await generateMarkdown(userInput);
 
-  await writeToFile('yourReadMe.md', generateMarkdown(userInput));
+  await writeToFile('yourReadMe.md', markdown);
 
   await api.getUser(userInput.username);
 }

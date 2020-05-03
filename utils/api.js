@@ -9,7 +9,7 @@ const api = {
         let userEmail = response.data.email;
         let avatarURL = response.data.avatar_url;
 
-        if (userEmail === null) userEmail = '';
+        if (userEmail === null) userEmail = '[Your Email Here]';
 
         const gitHubData = `
 Please send questions to: ${userEmail}
