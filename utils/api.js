@@ -13,6 +13,7 @@ const api = {
 
         const gitHubData = `
 Please send questions to: ${userEmail}
+
 ![GitHub Avatar](${avatarURL})`;
 
         fs.appendFile('yourReadMe.md', gitHubData, 'utf8', (error) => {

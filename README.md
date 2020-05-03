@@ -47,4 +47,5 @@ clone git@github.com:hermanjohn2/README-Generator.git
 ## Questions
 
 Please send questions to: hermanjohn2@gmail.com
+
 ![GitHub Avatar](https://avatars0.githubusercontent.com/u/57771371?v=4)
