@@ -1,8 +1,6 @@
-const api = require('./api');
-
+// Generates Markdown for yourReadMe.md
 function generateMarkdown(data) {
-  return `
-# ${data.title}
+  return `# ${data.title}
 
 ${data.description}
 
@@ -43,4 +41,5 @@ ${data.tests}
 `;
 }
 
+// Exporting function
 module.exports = generateMarkdown;

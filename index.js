@@ -1,8 +1,10 @@
+// Packages
 const fs = require('fs');
 const inquirer = require('inquirer');
 const api = require('./utils/api');
 const generateMarkdown = require('./utils/generateMarkdown');
 
+// Questions Array...
 const questions = [
   {
     type: 'input',
@@ -47,6 +49,7 @@ const questions = [
   }
 ];
 
+// Function that writes a file using fs
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, 'utf8', (error) => {
     if (error) throw error;
@@ -54,13 +57,19 @@ function writeToFile(fileName, data) {
   });
 }
 
+// Init function that runs when application is started
 async function init() {
+  // Inquirer Prompt
   const userInput = await inquirer.prompt(questions);
-  const markdown = await generateMarkdown(userInput);
 
-  await writeToFile('yourReadMe.md', markdown);
+  // GitHub API call
+  api.getUser(userInput.username);
 
-  await api.getUser(userInput.username);
+  // Markdown Generator
+  const markdown = generateMarkdown(userInput);
+
+  // Writes .md file with provided markdown
+  writeToFile('yourReadMe.md', markdown);
 }
 
 init();
