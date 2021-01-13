@@ -1,34 +1,22 @@
-const fs = require('fs');
 const axios = require('axios');
 
-// API call to GitHub
-const api = {
-  getUser(username) {
-    axios
-      .get(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        let userEmail = response.data.email;
-        let avatarURL = response.data.avatar_url;
+// Object to hold API calls
+module.exports = {
+	async getRepoNames(username) {
+		const repoNames = await axios
+			.get(`https://api.github.com/users/${username}/repos`)
+			.then(response => {
+				// Initializing array with an option to not include a repo name
+				let namesArr = ['N/A'];
 
-        // If issue obtaining email from API insert placeholder
-        if (userEmail === null) userEmail = '[Your Email Here]';
+				response.data.map(repo => namesArr.push(repo.name));
 
-        // Markdown to be appended to .md file
-        const gitHubData = `
-Please send questions to: ${userEmail}
+				return namesArr;
+			})
+			.catch(error => {
+				if (error) throw error;
+			});
 
-![GitHub Avatar](${avatarURL})`;
-
-        // Appending to the .md file
-        fs.appendFile('yourReadMe.md', gitHubData, 'utf8', (error) => {
-          if (error) throw error;
-        });
-      })
-      .catch((error) => {
-        if (error) throw error;
-      });
-  }
+		return repoNames;
+	}
 };
-
-// Exporting API
-module.exports = api;

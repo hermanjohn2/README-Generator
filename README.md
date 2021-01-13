@@ -15,8 +15,8 @@ An application that creates a README for your GitHub projects. Using your `CLI`,
 
 ## Installation
 
-1. Move to the directory that contains the application
-2. Enter the following command into your CLI:
+1. Move to the directory that contains this application
+2. Enter the following command into your terminal:
 
 ```
 npm install
@@ -24,15 +24,15 @@ npm install
 
 ## Usage
 
-Once installation is complete, enter the following command into your CLI to start the application:
+Once installation is complete, enter the following command into your terminal to start the application:
 
 ```
 npm start
 ```
 
-- Answer all of the prompted questions in the CLI
-- `yourReadMe.md` will be generated and added to the application directory
-- Move `yourReadMe.md` into your project's directory OR click and drag onto your desktop
+- Use the CLI to answer all of the prompts
+- A `README.md` will be generated and added to the `output` directory
+- Move the newly generated `README.md` into the root of your project's directory
 
 ## Contributing
 
@@ -46,6 +46,4 @@ clone git@github.com:hermanjohn2/README-Generator.git
 
 ## Questions
 
-Please send questions to: hermanjohn2@gmail.com
-
-![GitHub Avatar](https://avatars0.githubusercontent.com/u/57771371?v=4)
+Questions, Concerns, Ideas, Feedback? Please send them to [hermanjohn2@gmail.com](hermanjohn2@gmail.com)

@@ -1,8 +1,7 @@
-// Generates Markdown for yourReadMe.md
-function generateMarkdown(data) {
-  return `# ${data.title}
+async function generateMarkdown(project, username, repo) {
+	return `# ${project.title}
 
-${data.description}
+${project.description}
 
 ## Table of Contents
 
@@ -13,31 +12,37 @@ ${data.description}
 5. Tests
 6. Questions
 
-[![GitHub version](https://badge.fury.io/gh/${data.username}%2F${data.repo}.svg)](https://github.com/${data.username}/${data.repo})
 
 ## Installation
 
-${data.installation}
+${project.installation}
 
 ## Usage
 
-${data.usage}
+${project.usage}
 
 ## License 
 
-${data.license}
+${project.license}
+
 
 ## Contributing
 
-1. [Fork](https://github.com/${data.username}/${data.repo})
-2. [Pull Requests](https://github.com/${data.username}/${data.repo}/pulls)
-3. Clone: git@github.com:${data.username}/${data.repo}.git
+1. [Fork](https://github.com/${username}/${repo})
+2. [Pull Requests](https://github.com/${username}/${repo}/pulls)
+3. Clone: 
+
+${'```'}
+git clone git@github.com:${username}/${repo}.git
+${'```'}
 
 ## Tests
 
-${data.tests}
+${project.tests}
 
-## Questions
+## Issues
+
+Questions, Concerns, Ideas, Feedback? Please send them **[here](https://github.com/${username}/${repo}/issues)**.
 `;
 }
 
