@@ -34,7 +34,7 @@ async function init() {
 	]);
 
 	// Gathers remaining project info
-	const projectRes = await inquirer.prompt(questions.projectDetails);
+	const projectRes = await questions.getProjectDetails();
 
 	// Builds markdown file
 	const markdown = await generateMarkdown(projectRes, usernameRes.username, repoRes.repo);
