@@ -1,3 +1,14 @@
+function generateTableOfContents(sectionTitles) {
+	let tableOfContents = ``;
+	let num = 1;
+	sectionTitles.map(title => {
+		tableOfContents += `${num}. [${title}](#${title}) \n`;
+		num++;
+	});
+
+	return tableOfContents;
+}
+
 async function generateMarkdown(project, username, repo) {
 	return `# ${project.title}
 
@@ -5,13 +16,7 @@ ${project.description}
 
 ## Table of Contents
 
-1. Installation
-2. Usage
-3. License
-4. Contributing
-5. Tests
-6. Questions
-
+${generateTableOfContents(['Installation', 'Usage', 'License', 'Contributing', 'Tests', 'Questions'])}
 
 ## Installation
 
@@ -24,7 +29,6 @@ ${project.usage}
 ## License 
 
 ${project.license}
-
 
 ## Contributing
 
