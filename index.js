@@ -10,8 +10,8 @@ const generateMarkdown = require('./utils/generateMarkdown');
 function writeToFile(fileName, data) {
 	fs.writeFile(fileName, data, 'utf8', error => {
 		if (error) throw error;
-		console.log('Your README.md was successfully created!');
-		console.log('Open the output folder to view your document.');
+		console.log('\n Your README.md was successfully created!');
+		console.log('\n Open the output folder to view your document. \n');
 	});
 }
 
@@ -26,10 +26,16 @@ async function init() {
 		}
 	]);
 
-	// Gathers user repo names
-	const repoNames = await API.getRepoNames(username);
+	// Uses username to gather repo data. If they are not a user, they will be given the option to reenter their username or continue with a username
+	let repoNames = await API.getRepoNames(username);
 
-	// Prompts user to choose a Repo
+	// If there was an issue with their username and they would like to restart the program
+	if (repoNames === 'restart') {
+		await init();
+
+		return; // ensures the program ends after resolving the init function
+	}
+
 	const { repo } = await inquirer.prompt([
 		{
 			type: 'list',
@@ -38,6 +44,8 @@ async function init() {
 			name: 'repo'
 		}
 	]);
+
+	// Prompts user to choose a Repo
 
 	// Gathers remaining project info
 	const projectRes = await getProjectDetails();

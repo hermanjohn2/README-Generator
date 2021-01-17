@@ -1,13 +1,18 @@
-# Sample README
+# Sample
 
-A sample README output.
+Sample output
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-2. [License](#License)
-3. [Contributing](#Contributing)
-4. [Issues](#Issues)
+1. [Installation](#Installation)
+2. [Usage](#Usage)
+3. [License](#License)
+4. [Contributing](#Contributing)
+5. [Issues](#Issues)
+
+## Installation
+
+npm install
 
 ## Usage
 
