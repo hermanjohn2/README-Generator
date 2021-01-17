@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 
-// This is a flexible prompt that will be driven by possible section titles
+const API = require('./api');
+
+// This is a prompt helper function that will be driven by possible section titles
 async function promptSection(title, dataArray) {
 	let { hasSection } = await inquirer.prompt([
 		{
@@ -26,6 +28,39 @@ async function promptSection(title, dataArray) {
 	}
 }
 
+async function promptLicense(dataArray) {
+	const licenses = await API.getLicenses();
+
+	licenses.push('Other');
+
+	let { hasLicense } = await inquirer.prompt([
+		{
+			type: 'confirm',
+			message: 'Does your project have a License?',
+			name: 'hasLicense'
+		}
+	]);
+
+	if (hasLicense) {
+		let { licenseName } = await inquirer.prompt([
+			{
+				type: 'list',
+				message: 'Please select a license:',
+				choices: licenses,
+				name: 'licenseName'
+			}
+		]);
+
+		const license = licenses.filter(license => license === licenseName)[0];
+
+		dataArray.push({
+			title: 'License',
+			data: license
+		});
+	} else return;
+}
+
+// Object to hold prompts
 module.exports = {
 	username: [
 		{
@@ -49,7 +84,7 @@ module.exports = {
 		]);
 
 		// Add new sections here
-		const possibleSections = ['Installation', 'Usage', 'License', 'Tests'];
+		const possibleSections = ['Installation', 'Usage', 'Tests'];
 
 		let sectionData = [];
 
@@ -57,6 +92,8 @@ module.exports = {
 		for (const section of possibleSections) {
 			await promptSection(section, sectionData);
 		}
+
+		await promptLicense(sectionData);
 
 		return {
 			title: title,

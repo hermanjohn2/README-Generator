@@ -1,14 +1,15 @@
-# Sample
+# Sample README
 
-This is a sample
+Sample README output
 
 ## Table of Contents
 
 1. [Installation](#Installation)
 2. [Usage](#Usage)
-3. [License](#License)
-4. [Contributing](#Contributing)
-5. [Issues](#Issues)
+3. [Tests](#Tests)
+4. [License](#License)
+5. [Contributing](#Contributing)
+6. [Issues](#Issues)
 
 ## Installation
 
@@ -18,9 +19,13 @@ npm install
 
 npm start
 
-## License
+## Tests
 
-ISC
+npm run test
+
+## License <img src="https://img.shields.io/github/license/hermanjohn2/N/A" alt="Repo License Badge">
+
+MIT License
 
 ## Contributing
 

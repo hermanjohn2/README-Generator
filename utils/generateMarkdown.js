@@ -9,11 +9,16 @@ function generateTableOfContents(sectionTitles) {
 	return tableOfContents;
 }
 
-function generateSections(data) {
+function generateSections(data, username, repo) {
 	var md = ``;
 	data.map(section => {
-		md += `## ${section.title} \n \n`;
-		md += `${section.data} \n \n`;
+		if (section.title === 'License') {
+			md += `## ${section.title}  <img src="https://img.shields.io/github/license/${username}/${repo}" alt="Repo License Badge"> \n \n`;
+			md += `${section.data} \n`;
+		} else {
+			md += `## ${section.title} \n \n`;
+			md += `${section.data} \n \n`;
+		}
 	});
 	return md;
 }
@@ -32,8 +37,7 @@ ${project.description}
 ## Table of Contents
 
 ${generateTableOfContents(allTitlesArr)}
-
-${generateSections(project.sectionData)}
+${generateSections(project.sectionData, username, repo)}
 ## Contributing
 
 1. [Fork](https://github.com/${username}/${repo})

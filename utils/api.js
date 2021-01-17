@@ -2,7 +2,7 @@ const axios = require('axios');
 
 // Object to hold API calls
 module.exports = {
-	async getRepoNames(username) {
+	getRepoNames: async username => {
 		const repoNames = await axios
 			.get(`https://api.github.com/users/${username}/repos`)
 			.then(response => {
@@ -18,5 +18,12 @@ module.exports = {
 			});
 
 		return repoNames;
+	},
+	getLicenses: async () => {
+		let licenses = await axios.get(`https://api.github.com/licenses`).then(response => response.data);
+
+		licenses = licenses.map(license => license.name);
+
+		return licenses;
 	}
 };
