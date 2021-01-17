@@ -2,7 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const questions = require('./utils/questions');
+const getProjectDetails = require('./utils/getProjectDetails');
 const API = require('./utils/api');
 const generateMarkdown = require('./utils/generateMarkdown');
 
@@ -18,13 +18,19 @@ function writeToFile(fileName, data) {
 // Init function that runs when application is started
 async function init() {
 	// Get Username
-	const usernameRes = await inquirer.prompt(questions.username);
+	const { username } = await inquirer.prompt([
+		{
+			type: 'input',
+			message: 'What is your GitHub username?',
+			name: 'username'
+		}
+	]);
 
 	// Gathers user repo names
-	const repoNames = await API.getRepoNames(usernameRes.username);
+	const repoNames = await API.getRepoNames(username);
 
 	// Prompts user to choose a Repo
-	const repoRes = await inquirer.prompt([
+	const { repo } = await inquirer.prompt([
 		{
 			type: 'list',
 			message: 'Which GitHub repo are you creating this README for?',
@@ -34,10 +40,10 @@ async function init() {
 	]);
 
 	// Gathers remaining project info
-	const projectRes = await questions.getProjectDetails();
+	const projectRes = await getProjectDetails();
 
 	// Builds markdown file
-	const markdown = await generateMarkdown(projectRes, usernameRes.username, repoRes.repo);
+	const markdown = await generateMarkdown(projectRes, username, repo);
 
 	// Writes file to output directory
 	writeToFile('output/README.md', markdown);

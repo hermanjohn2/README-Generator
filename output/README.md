@@ -1,27 +1,17 @@
 # Sample README
 
-Sample README output
+A sample README output.
 
 ## Table of Contents
 
-1. [Installation](#Installation)
-2. [Usage](#Usage)
-3. [Tests](#Tests)
-4. [License](#License)
-5. [Contributing](#Contributing)
-6. [Issues](#Issues)
-
-## Installation
-
-npm install
+1. [Usage](#Usage)
+2. [License](#License)
+3. [Contributing](#Contributing)
+4. [Issues](#Issues)
 
 ## Usage
 
 npm start
-
-## Tests
-
-npm run test
 
 ## License <img src="https://img.shields.io/github/license/hermanjohn2/N/A" alt="Repo License Badge">
 
