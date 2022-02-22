@@ -1,6 +1,6 @@
 {
-	"name": "README-generator",
-	"version": "1.0.0",
+	"name": "readme-generator",
+	"version": "1.1.0",
 	"description": "Command-line application that generates README.md from user input.",
 	"main": "index.js",
 	"scripts": {
@@ -10,8 +10,8 @@
 	"author": "John Herman",
 	"license": "ISC",
 	"dependencies": {
-		"axios": "^0.21.1",
-		"dotenv": "^8.0.0",
-		"inquirer": "^6.3.1"
+		"axios": "^0.26.0",
+		"dotenv": "^16.0.0",
+		"inquirer": "^8.2.0"
 	}
 }
