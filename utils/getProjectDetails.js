@@ -56,7 +56,7 @@ const promptLicense = async dataArray => {
 
 		dataArray.push({
 			title: 'License',
-			data: license
+			data: licenseName
 		});
 	} else return;
 };
